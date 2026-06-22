@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>竞彩网 · 赛事与生活交汇处</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #fafaf8;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+            color: #1e2a2f;
+            line-height: 1.7;
+            padding: 2.4rem 1.2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .page {
+            max-width: 720px;
+            width: 100%;
+            background: transparent;
+        }
+
+        /* hero 区域 – 安静开场 */
+        .hero {
+            margin-bottom: 2.8rem;
+            border-bottom: 1px solid #e2e8e4;
+            padding-bottom: 2rem;
+        }
+
+        .hero-sub {
+            font-size: 0.8rem;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: #7d8a86;
+            margin-bottom: 0.4rem;
+        }
+
+        .hero-title {
+            font-size: 2.6rem;
+            font-weight: 380;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+            color: #1b2a2c;
+            margin-bottom: 1.2rem;
+        }
+
+        .hero-title em {
+            font-style: normal;
+            color: #3d6b5b;
+        }
+
+        .hero-intro {
+            font-size: 1.05rem;
+            color: #3b4a4a;
+            max-width: 600px;
+        }
+
+        .hero-intro a {
+            color: #3d6b5b;
+            text-decoration: none;
+            border-bottom: 1px solid #bccfc7;
+            transition: border-color 0.15s;
+        }
+
+        .hero-intro a:hover {
+            border-color: #3d6b5b;
+        }
+
+        /* 承接段落 – 从用户视角娓娓道来 */
+        .story-block {
+            margin-bottom: 3rem;
+        }
+
+        .story-block p {
+            margin-bottom: 1.4rem;
+            font-size: 1rem;
+            color: #2b3a3a;
+        }
+
+        .story-block p:last-child {
+            margin-bottom: 0;
+        }
+
+        .story-block .dropcap {
+            font-size: 1.15rem;
+            font-weight: 500;
+            background: #eef3f0;
+            display: inline-block;
+            padding: 0 0.3rem;
+            color: #2b5a4a;
+        }
+
+        /* 特点卡片 – 轻量、留白、温和 */
+        .features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.8rem 1.6rem;
+            margin: 3rem 0 2.6rem 0;
+        }
+
+        .feature-item {
+            background: #ffffff;
+            padding: 1.6rem 1.4rem;
+            border-radius: 20px;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.02), 0 6px 18px rgba(0, 20, 10, 0.03);
+            transition: all 0.15s ease;
+        }
+
+        .feature-item:hover {
+            box-shadow: 0 4px 12px rgba(50, 80, 65, 0.04);
+            transform: translateY(-2px);
+        }
+
+        .feature-icon {
+            font-size: 1.4rem;
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #3d6b5b;
+        }
+
+        .feature-title {
+            font-weight: 500;
+            font-size: 1.05rem;
+            letter-spacing: 0.01em;
+            margin-bottom: 0.3rem;
+            color: #1b2a2c;
+        }
+
+        .feature-desc {
+            font-size: 0.9rem;
+            color: #4f6361;
+            line-height: 1.5;
+        }
+
+        /* 温和结尾 — 场景与邀请 */
+        .closing {
+            background: #f3f7f3;
+            padding: 2rem 2rem 2rem 2rem;
+            border-radius: 28px;
+            margin-top: 2rem;
+            margin-bottom: 2.6rem;
+            text-align: left;
+        }
+
+        .closing h3 {
+            font-weight: 400;
+            font-size: 1.2rem;
+            margin-bottom: 0.75rem;
+            color: #1e3a33;
+        }
+
+        .closing p {
+            font-size: 0.95rem;
+            color: #3a504c;
+            margin-bottom: 0.9rem;
+        }
+
+        .closing p:last-child {
+            margin-bottom: 0;
+        }
+
+        .closing a {
+            color: #3d6b5b;
+            text-decoration: none;
+            border-bottom: 1px solid #b3ccc1;
+        }
+
+        .closing a:hover {
+            border-bottom-color: #2b5a4a;
+            color: #1f4a3c;
+        }
+
+        /* FAQ 摘要 – 极简折叠风格（无需JS） */
+        .faq-summary {
+            margin: 2.4rem 0 1.2rem;
+            border-top: 1px solid #dae2dc;
+            padding-top: 1.8rem;
+        }
+
+        .faq-summary details {
+            margin-bottom: 0.9rem;
+            border-left: 2px solid #cbdad1;
+            padding-left: 1rem;
+        }
+
+        .faq-summary summary {
+            font-weight: 450;
+            color: #1e3a33;
+            cursor: default;
+            list-style: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .faq-summary summary::before {
+            content: "?";
+            display: inline-block;
+            width: 1.2rem;
+            height: 1.2rem;
+            background: #dce8e0;
+            color: #2b5a4a;
+            font-size: 0.75rem;
+            font-weight: 600;
+            border-radius: 30px;
+            text-align: center;
+            line-height: 1.3rem;
+            margin-right: 0.6rem;
+            flex-shrink: 0;
+        }
+
+        .faq-summary details p {
+            margin: 0.5rem 0 0.2rem 1.8rem;
+            font-size: 0.9rem;
+            color: #3f5652;
+        }
+
+        .footnote {
+            font-size: 0.8rem;
+            color: #7c8f89;
+            border-top: 1px solid #e3ebe5;
+            padding-top: 1.6rem;
+            margin-top: 1.8rem;
+            text-align: left;
+        }
+
+        /* 响应式 */
+        @media (max-width: 540px) {
+            body {
+                padding: 1.6rem 0.9rem;
+            }
+
+            .hero-title {
+                font-size: 1.9rem;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .feature-item {
+                padding: 1.2rem 1rem;
+            }
+
+            .closing {
+                padding: 1.6rem;
+            }
+
+            .faq-summary details {
+                padding-left: 0.6rem;
+            }
+        }
+
+        @media (min-width: 900px) {
+            .page {
+                max-width: 740px;
+            }
+
+            .hero-title {
+                font-size: 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- 开场短句 -->
+    <div class="hero">
+        <div class="hero-sub">一个安静的开始</div>
+        <h1 class="hero-title">你在找的是 <em>竞彩网</em> 吗？</h1>
+        <p class="hero-intro">
+            多数人第一次听说 <a href="https://sitehome-sporttery.com">竞彩网</a>，是因为某个比赛日的闲聊，
+            或是在手机备忘录里草草记下的一个名字。
+            它不张扬，却总能在你需要的时候，恰好出现。
+        </p>
+    </div>
+
+    <!-- 承接段落：从用户想快速识别网站用途的角度 -->
+    <div class="story-block">
+        <p>
+            <span class="dropcap">当你</span> 打开一个和体育相关的站点，心里通常带着一个简单的问题：
+            “这里能让我看到什么？值不值得我花时间？”
+            对于 <a href="https://sitehome-sporttery.com">竞彩网</a> 而言，答案藏在一贯克制的页面里：
+            没有弹窗打扰，没有夸张横幅，只有清晰的赛事信息和竞猜选项。
+        </p>
+        <p>
+            它不需要你费力辨认——<strong>赛事列表、场次时间、选项赔率</strong>，都以最直白的方式排列。
+            如果你习惯先扫一眼界面再决定是否深入，这种干净的节奏大概会让你觉得舒服。
+        </p>
+        <p>
+            更重要的是，它把“竞彩”这件事还原为一种日常的观看与判断。
+            没有催促，没有倒计时焦虑，一切都安安静静地摆在那里，等你准备好了再做选择。
+        </p>
+    </div>
+
+    <!-- 特点列表 – 四卡片 -->
+    <div class="features">
+        <div class="feature-item">
+            <span class="feature-icon">⚽</span>
+            <div class="feature-title">赛事覆盖</div>
+            <div class="feature-desc">足球、篮球及重点联赛，场次更新及时，让你看到完整的对阵信息。</div>
+        </div>
+        <div class="feature-item">
+            <span class="feature-icon">📋</span>
+            <div class="feature-title">简洁列表</div>
+            <div class="feature-desc">没有冗余装饰，赛事与选项并排展示，一眼就能找到你想看的那一场。</div>
+        </div>
+        <div class="feature-item">
+            <span class="feature-icon">🔍</span>
+            <div class="feature-title">快速定位</div>
+            <div class="feature-desc">支持按联赛、日期筛选，也可以直接搜索队伍名称，减少翻找时间。</div>
+        </div>
+        <div class="feature-item">
+            <span class="feature-icon">🧘</span>
+            <div class="feature-title">低干扰体验</div>
+            <div class="feature-desc">页面设计以内容优先，没有自动播放视频或频繁弹出的信息窗。</div>
+        </div>
+    </div>
+
+    <!-- 温和结尾 + 场景描述 -->
+    <div class="closing">
+        <h3>一个平常的使用场景</h3>
+        <p>
+            傍晚打开电脑，你只是想看一眼明早那场球的选项变化。
+            在 <a href="https://sitehome-sporttery.com">竞彩网</a> 上，从点击到找到对应场次，大概只需要两次鼠标。
+            赔率和选项并列显示，没有多余步骤。
+        </p>
+        <p>
+            如果你习惯在睡前简单浏览第二天的赛事，它的移动端适配也足够轻快，
+            字体大小和间距都照顾到了阅读舒适度。
+        </p>
+        <p>
+            说到底，工具类网站最好的状态就是“用完即走”，不拖泥带水。
+            <a href="https://sitehome-sporttery.com">竞彩网</a> 恰好沿着这条路，安安静静地运行着。
+        </p>
+    </div>
+
+    <!-- FAQ 摘要 – 两个常见心理疑问 -->
+    <div class="faq-summary">
+        <details>
+            <summary>第一次使用，需要注意什么？</summary>
+            <p>和任何竞彩类平台一样，建议先花两三分钟熟悉页面布局：左侧通常为赛事列表，右侧或下方显示选项。不需要注册即可浏览大部分内容。</p>
+        </details>
+        <details>
+            <summary>页面加载速度怎么样？</summary>
+            <p>采用轻量化前端结构，首屏加载压力小。实测在普通4G网络下，2秒内即可显示完整赛事列表。</p>
+        </details>
+    </div>
+
+    <div class="footnote">
+        保持简单 · 保持清晰
+    </div>
+
+</div>
+</body>
+</html>
