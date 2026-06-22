@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>认识竞彩网 · 轻松了解体育竞猜</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f2f4f6;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      color: #1e2a3a;
+      line-height: 1.7;
+      padding: 2rem 1.2rem;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .page {
+      max-width: 880px;
+      width: 100%;
+      background: transparent;
+    }
+
+    .card {
+      background: #ffffff;
+      border: 1px solid #e6e9ed;
+      border-radius: 24px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.03), 0 2px 6px rgba(0, 0, 0, 0.02);
+      padding: 2rem 2.2rem;
+      margin-bottom: 1.8rem;
+      transition: box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.05);
+    }
+
+    .hero {
+      text-align: center;
+      padding: 3rem 2rem 2.2rem;
+    }
+
+    .hero .opening {
+      font-size: 1.3rem;
+      font-weight: 450;
+      color: #374151;
+      letter-spacing: 0.02em;
+      margin-bottom: 0.8rem;
+    }
+
+    .hero h1 {
+      font-size: 2.1rem;
+      font-weight: 600;
+      color: #0b1727;
+      margin: 0.4rem 0 0.8rem;
+      line-height: 1.3;
+    }
+
+    .hero .sub {
+      font-size: 1rem;
+      color: #5e6f88;
+      max-width: 620px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      font-size: 1.35rem;
+      font-weight: 550;
+      margin-bottom: 1.1rem;
+      color: #1e2a3a;
+      border-left: 4px solid #b4c8e0;
+      padding-left: 0.9rem;
+    }
+
+    .intro-text {
+      font-size: 1rem;
+      color: #2a3b4f;
+    }
+
+    .intro-text p {
+      margin-bottom: 1.1rem;
+    }
+
+    .feature-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      margin-top: 0.8rem;
+    }
+
+    .feature-item {
+      background: #f7f9fc;
+      border: 1px solid #e2e7ee;
+      border-radius: 18px;
+      padding: 1.2rem 1.4rem;
+      flex: 1 1 180px;
+      min-width: 140px;
+    }
+
+    .feature-item h3 {
+      font-size: 1.1rem;
+      font-weight: 550;
+      margin-bottom: 0.3rem;
+      color: #1e2a3a;
+    }
+
+    .feature-item p {
+      font-size: 0.95rem;
+      color: #4b5d74;
+    }
+
+    .scene-card {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      align-items: flex-start;
+    }
+
+    .scene-item {
+      flex: 1 1 200px;
+      background: #fafbfd;
+      border: 1px solid #e2e7ee;
+      border-radius: 18px;
+      padding: 1.2rem 1.4rem;
+    }
+
+    .scene-item .emoji-tag {
+      font-size: 1.6rem;
+      margin-bottom: 0.3rem;
+      display: inline-block;
+    }
+
+    .scene-item h3 {
+      font-size: 1rem;
+      font-weight: 550;
+      margin-bottom: 0.2rem;
+    }
+
+    .scene-item p {
+      font-size: 0.9rem;
+      color: #4b5d74;
+    }
+
+    .highlight-link {
+      display: inline;
+    }
+
+    .highlight-link a {
+      color: #1f509e;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px solid #b8cce4;
+      transition: border 0.2s, color 0.15s;
+    }
+
+    .highlight-link a:hover {
+      color: #0b2d63;
+      border-bottom-color: #0b2d63;
+    }
+
+    .faq-preview {
+      background: #f7f9fc;
+      border-radius: 18px;
+      padding: 1.4rem 1.6rem;
+      margin: 1.2rem 0 0.2rem;
+      border: 1px solid #e2e7ee;
+    }
+
+    .faq-preview summary {
+      font-weight: 500;
+      cursor: pointer;
+      padding: 0.3rem 0;
+      font-size: 1rem;
+      color: #1e2a3a;
+    }
+
+    .faq-preview summary:hover {
+      color: #1f509e;
+    }
+
+    .faq-preview .answer {
+      margin-top: 0.6rem;
+      padding-left: 0.2rem;
+      color: #3b5068;
+      font-size: 0.95rem;
+    }
+
+    .closing {
+      text-align: center;
+      padding: 0.8rem 0 0.2rem;
+      font-size: 0.95rem;
+      color: #5a6f88;
+      border-top: 1px solid #e2e7ee;
+      margin-top: 0.8rem;
+    }
+
+    .closing a {
+      color: #1f509e;
+      text-decoration: none;
+      border-bottom: 1px solid #c8d8ee;
+    }
+
+    .closing a:hover {
+      border-bottom-color: #0b2d63;
+    }
+
+    @media (max-width: 640px) {
+      body {
+        padding: 1.2rem 0.8rem;
+      }
+      .card {
+        padding: 1.5rem 1.2rem;
+      }
+      .hero {
+        padding: 2rem 1rem 1.5rem;
+      }
+      .hero h1 {
+        font-size: 1.7rem;
+      }
+      .feature-grid {
+        flex-direction: column;
+      }
+      .scene-card {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <!-- hero 开场短句 -->
+    <div class="card hero">
+      <div class="opening">想快速知道一个体育竞猜平台是做什么的？</div>
+      <h1>从一场比赛开始，了解「竞彩网」</h1>
+      <p class="sub">不论你是第一次接触，还是想重新认识——这个页面用最直接的方式，告诉你它是什么。</p>
+    </div>
+
+    <!-- 承接段落：从用户视角识别用途 -->
+    <div class="card">
+      <div class="section-title">它解决什么问题？</div>
+      <div class="intro-text">
+        <p>当你打开一个体育竞猜网站，第一个念头往往是：“这里能做什么？规则复杂吗？是不是只适合资深玩家？” 实际上，<span class="highlight-link"><a href="https://siteapp-sporttery.com">竞彩网</a></span> 所呈现的，是一个围绕体育比赛本身设计的竞猜工具。它不试图用花哨的营销词吸引你，而是用清晰的赛事列表和竞猜选项，告诉你每场比赛有哪些玩法。</p>
+        <p>从英超到欧冠，从篮球到网球，你看到的每一场都对应着不同的竞猜组合。页面结构侧重「快速选择」—— 你不需要翻好几层菜单，就能找到当前可参与的赛事。这种直觉化的布局，让第一次来的人也能大致明白：哦，这里就是根据比赛结果做选择的地方。</p>
+      </div>
+    </div>
+
+    <!-- 特点列表（卡片式） -->
+    <div class="card">
+      <div class="section-title">几个值得留意的特点</div>
+      <div class="feature-grid">
+        <div class="feature-item">
+          <h3>赛事覆盖</h3>
+          <p>足球、篮球、网球等主流赛事，按时间线与联赛分类，方便筛选。</p>
+        </div>
+        <div class="feature-item">
+          <h3>竞猜选项</h3>
+          <p>每一场比赛提供若干结果选项，例如胜平负、让球、大小分等。</p>
+        </div>
+        <div class="feature-item">
+          <h3>界面风格</h3>
+          <p>信息密度适中，重点突出比赛时间与赔率，减少无关装饰。</p>
+        </div>
+        <div class="feature-item">
+          <h3>账户流程</h3>
+          <p>注册与登录入口清晰，但使用前建议先了解相关规则与说明。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 常见使用场景（温和、生活化） -->
+    <div class="card">
+      <div class="section-title">通常什么情况下会用到它？</div>
+      <div class="scene-card">
+        <div class="scene-item">
+          <div class="emoji-tag">⚽</div>
+          <h3>周末看球前</h3>
+          <p>打开看看当晚有哪些赛事可以选择，顺手了解一下赔率变化。</p>
+        </div>
+        <div class="scene-item">
+          <div class="emoji-tag">🏀</div>
+          <h3>关注NBA时</h3>
+          <p>想为某场比赛增加一点观赛乐趣，看看有哪些竞猜选项。</p>
+        </div>
+        <div class="scene-item">
+          <div class="emoji-tag">📱</div>
+          <h3>快速浏览</h3>
+          <p>利用碎片时间扫一眼即将开始的比赛，做到心里有数。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 温和提示 + FAQ 摘要（非诱导） -->
+    <div class="card">
+      <div class="section-title">了解之后再使用</div>
+      <p style="margin-bottom: 0.8rem; color: #2a3b4f;">竞彩网的定位是体育竞猜工具，而非投资或理财平台。参与前建议先熟悉玩法、规则以及自身预算。下面是一些常见疑问的简短回答：</p>
+      <div class="faq-preview">
+        <details>
+          <summary>需要注册才能浏览吗？</summary>
+          <div class="answer">查看赛事列表与赔率通常不需要登录，但进行竞猜操作则需要注册账户。具体以实际页面提示为准。</div>
+        </details>
+        <details style="margin-top: 0.6rem;">
+          <summary>竞猜选项中的数字是什么意思？</summary>
+          <div class="answer">数字代表该选项对应的赔率，通常越高表示该结果发生的可能性被判断为越低。赔率会随投注情况动态调整。</div>
+        </details>
+        <details style="margin-top: 0.6rem;">
+          <summary>是否支持所有体育项目？</summary>
+          <div class="answer">以足球和篮球为主，同时会涵盖部分其他赛事。具体可查看网站内的「赛事」分类。</div>
+        </details>
+      </div>
+      <p style="margin-top: 1rem; font-size: 0.9rem; color: #4b5d74;">如果有更具体的问题，建议直接查看 <span class="highlight-link"><a href="https://siteapp-sporttery.com">竞彩网</a></span> 内的帮助或规则页面。</p>
+    </div>
+
+    <!-- 温和结尾 -->
+    <div class="closing">
+      <p>希望这个简短的介绍，能帮你更快了解这个平台。如果你已经准备好，可以前往&nbsp;<a href="https://siteapp-sporttery.com">竞彩网</a>&nbsp;亲自看看。</p>
+    </div>
+  </div>
+</body>
+</html>
